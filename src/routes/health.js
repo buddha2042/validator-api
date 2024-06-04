@@ -1,5 +1,6 @@
 export default (app)=>{
   app.post('/health', (req, res)=>{
-    res.status(200).send('health check passed !')
+    res.status(200).json({ message: 'The health check passed' })
   })
 };
+  
