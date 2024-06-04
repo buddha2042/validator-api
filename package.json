@@ -8,15 +8,16 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "prompt-validators": "file:/Users/dhs-bd/Desktop/prompt-validators"
+    "prompt-validators": "file:/Users/dhs-bd/Desktop/prompt-validators",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.2",
-    "jest": "^29.5.0",
-    "supertest": "^6.2.2",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "babel-jest": "^27.4.0",
-    "identity-obj-proxy": "^3.0.0"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.5.0",
+    "nodemon": "^3.1.2",
+    "supertest": "^6.2.2"
   }
 }
