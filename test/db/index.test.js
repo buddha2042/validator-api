@@ -1,18 +1,18 @@
 // user.test.js
 'use strict';
 
-import sequelize from '../../db/models/index';
+import db from '../../db/models/index';
 
 beforeAll(async () => {
-  await sequelize.authenticate(); 
+  await db.sequelize.authenticate(); 
 });
 
 afterAll(async () => {
-  await sequelize.close();
+  await db.sequelize.close();
 });
 
 describe('Database connection', () => {
   test('should authenticate successfully', async () => {
-      await sequelize.authenticate();
+      await db.sequelize.authenticate();
   });
 });

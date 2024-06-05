@@ -1,9 +1,10 @@
+// app.js
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
-import  sequelize   from '../db/models/index.js';
+import db from '../db/models/index.js'; 
 
 dotenv.config();
 const app = express();
@@ -29,11 +30,7 @@ const loadRoutes = async () => {
     }
   }
 };
-
-// Load all routes
 await loadRoutes();
-
-// Verify the database connection status
-await sequelize.authenticate()
+await db.sequelize.authenticate();
 
 export default app;
