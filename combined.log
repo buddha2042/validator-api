@@ -1,0 +1,14 @@
+{"level":"info","message":"Health check endpoint stalibished","service":"user-service"}
+{"level":"info","message":"Database connected successurlly","service":"user-service"}
+{"level":"info","message":"Health check endpoint stalibished","service":"user-service"}
+{"level":"info","message":"Database connected successurlly","service":"user-service"}
+{"level":"info","message":"Health check endpoint stalibished","service":"user-service"}
+{"level":"info","message":"Database connected successurlly","service":"user-service"}
+{"level":"info","message":"Health check endpoint stalibished","service":"user-service"}
+{"level":"info","message":"Database connected successurlly","service":"user-service"}
+{"level":"info","message":"Health check endpoint stalibished","service":"user-service","timestamp":"2024-06-05T16:38:35.845Z"}
+{"level":"info","message":"Database connected successurlly","service":"user-service","timestamp":"2024-06-05T16:38:36.063Z"}
+{"level":"info","message":"Health check endpoint stalibished","service":"user-service","timestamp":"2024-06-05T17:02:25.748Z"}
+{"level":"info","message":"Database connected successurlly","service":"user-service","timestamp":"2024-06-05T17:02:25.940Z"}
+2024-06-05 10:16:48 [[32minfo[39m] [32mHealth check endpoint stalibished[39m 
+2024-06-05 10:16:48 [[32minfo[39m] [32mDatabase connected successurlly[39m 

@@ -1,15 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
-// import mongoose from './config/database.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
+import  sequelize   from '../db/models/index.js';
+
 dotenv.config();
-
-// Create Express app
 const app = express();
-
-// Middleware to parse JSON
 app.use(express.json());
 
 // Helper to get __dirname when using ES modules
@@ -35,5 +32,8 @@ const loadRoutes = async () => {
 
 // Load all routes
 await loadRoutes();
+
+// Verify the database connection status
+await sequelize.authenticate()
 
 export default app;
