@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import config from '../config/config.js';
@@ -16,30 +16,41 @@ const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.p
 // Test the connection
 sequelize.authenticate()
   .then(() => {
-    logger.info('Database connected successfully');
+    logger.info(`Database [ ${dbConfig.database} ] connected successfully `);
   })
   .catch((err) => {
     logger.error(`Unable to connect to the database: ${err}`);
   });
 
-const db = {};
+let db = {};
 
 // Dynamically import all models
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-fs.readdirSync(__dirname)
-  .filter(file => file.indexOf('.') !== 0 && file !== 'index.js' && file.slice(-3) === '.js')
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
 
-// Set up model associations
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
+const importModels = async () => {
+  const files = await fs.readdir(__dirname);
+  for (const file of files) {
+    if (file.indexOf('.') !== 0 && file !== 'index.js' && file.slice(-3) === '.js') {
+      const modelPath = 'file://' + path.join(__dirname, file); 
+      const model = await import(modelPath);
+      db[model.default.name] = model.default(sequelize, Sequelize.DataTypes);
+    }
   }
-});
+};
+
+importModels()
+  .then(() => {
+    // Set up model associations
+    Object.keys(db).forEach(modelName => {
+      if (db[modelName].associate) {
+        db[modelName].associate(db);
+      }
+    });
+  })
+  .catch(error => {
+    logger.error(`Error importing models: ${error}`);
+  });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
