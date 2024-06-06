@@ -1,4 +1,6 @@
-import createUser from "../controller/User/users.js";
+import  userController from '../controller/user/users.js';
 
 export default (app) => {
-    app.post('/create-user', createUser )};
+    app.post('/create-user', userController.addUser )
+    app.get('/user-list', userController.getUser)
+};

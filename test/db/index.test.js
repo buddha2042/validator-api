@@ -1,7 +1,7 @@
 // user.test.js
 'use strict';
 
-import db from '../../db/models/index';
+import { db } from '../../db/models/index';
 
 beforeAll(async () => {
   await db.sequelize.authenticate(); 
