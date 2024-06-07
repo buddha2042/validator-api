@@ -1,5 +1,5 @@
 
- # This project demonstrates a basic setup of a Node.js application using Sequelize ORM with a PostgreSQL database. It includes models, controllers, and services for managing users in the database.
+ #### This project demonstrates a basic setup of a Node.js application using Sequelize ORM with a PostgreSQL database. It includes models, controllers, and services for managing users in the database.
 
 ## Table of Contents
 
@@ -7,8 +7,6 @@
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Database Setup](#database-setup)
-- [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
 - [Project Structure](#project-structure)
 - [License](#license)
 
@@ -22,8 +20,8 @@
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/buddha2042/validator-api
+   cd validator-api
 2. Install the dependencies:
     ```sh
     npm install 
@@ -43,8 +41,23 @@
 
  - Replace 'database', 'username', and 'password' with your actual PostgreSQL database name, username, and password.
 
- ### Database Setup
-
- ### License
-  - This project is licensed under the MIT License.
+ ### Project Structure
+ ```      ├── db
+   │   ├── models
+   │   │   ├── index.js
+   │   │   └── users.js
+   │   └── migrations
+   ├── services
+   │   └── user
+   │       └── userServices.js
+   ├── controllers
+   │   └── user
+   │       └── userController.js
+   ├── config
+   │   └── database.js
+   ├── routes.js
+   ├── app.js
+   ├── package.json
+   └── README.md
+   
 
