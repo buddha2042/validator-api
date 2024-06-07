@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
-import { db } from '../db/models/index.js'; 
+import { db }  from '../db/models/index.js'; 
 
 dotenv.config();
 const app = express();

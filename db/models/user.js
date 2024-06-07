@@ -1,7 +1,12 @@
+'use strict';
 
 export default (sequelize, DataTypes) => {
-  console.log('iam called')
   const User = sequelize.define('User', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -19,7 +24,20 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    first_name: {
+      type: DataTypes.STRING,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+    }
+  }, {
+    timestamps: false,
+    tableName: 'users', 
   });
+
+  User.associate = (models) => {
+    // Define associations here
+  };
 
   return User;
 };
